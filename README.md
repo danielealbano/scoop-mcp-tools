@@ -1,42 +1,78 @@
-# Scoop Bucket Template
+# Scoop MCP Tools Bucket
 
-<!-- Uncomment the following line after replacing placeholders -->
-<!-- [![Tests](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml) [![Excavator](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml) -->
+[![Tests](https://github.com/danielealbano/scoop-mcp-tools/actions/workflows/ci.yml/badge.svg)](https://github.com/danielealbano/scoop-mcp-tools/actions/workflows/ci.yml)
+[![Excavator](https://github.com/danielealbano/scoop-mcp-tools/actions/workflows/excavator.yml/badge.svg)](https://github.com/danielealbano/scoop-mcp-tools/actions/workflows/excavator.yml)
 
-Template bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
+This is a custom [Scoop](https://scoop.sh) bucket that ships MCP-related tools, primarily for integrating Azure DevOps with Model Context Protocol (MCP) clients.
 
-## How do I use this template?
+Currently included:
 
-1. Generate your own copy of this repository with the "Use this template"
-   button.
-2. Allow all GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Actions permissions`.
-   - Select `Allow all actions and reusable workflows`.
-   - Then `Save`.
-3. Allow writing to the repository from within GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Workflow permissions`.
-   - Select `Read and write permissions`.
-   - Then `Save`.
-4. Document the bucket in `README.md`.
-5. Replace the placeholder repository string in `bin/auto-pr.ps1`.
-6. Create new manifests by copying `bucket/app-name.json.template` to
-   `bucket/<app-name>.json`.
-7. Commit and push changes.
-8. If you'd like your bucket to be indexed on `https://scoop.sh`, add the
-   topic `scoop-bucket` to your repository.
+- `mcp-for-azure-devops-boards`  
+  MCP server that exposes Azure DevOps Boards to MCP clients.
 
-## How do I install these manifests?
+---
 
-After manifests have been committed and pushed, run the following:
+## Installation
 
-```pwsh
-scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
-scoop install <bucketname>/<manifestname>
+First, add this bucket:
+
+```powershell
+scoop bucket add mcp-tools https://github.com/danielealbano/scoop-mcp-tools
+````
+
+Then install the Azure DevOps Boards MCP server:
+
+```powershell
+scoop install mcp-tools/mcp-for-azure-devops-boards
 ```
 
-## How do I contribute new manifests?
+After installation you can run:
 
-To make a new manifest contribution, please read the [Contributing
-Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-and [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
-wiki page.
+```powershell
+mcp-for-azure-devops-boards --help
+```
+
+---
+
+## Available manifests
+
+| Manifest name                 | Command                       | Description                                         |
+| ----------------------------- | ----------------------------- | --------------------------------------------------- |
+| `mcp-for-azure-devops-boards` | `mcp-for-azure-devops-boards` | MCP server exposing Azure DevOps Boards to clients. |
+
+More MCP-related tools may be added over time.
+
+---
+
+## Updating
+
+To update the bucket and installed apps:
+
+```powershell
+scoop update
+scoop update mcp-for-azure-devops-boards
+```
+
+---
+
+## Contributing
+
+If you want to add or improve manifests in this bucket:
+
+1. Fork this repository.
+2. Add or edit JSON manifests under the `bucket` directory.
+3. Run the tests locally if you have the Scoop test harness available.
+4. Open a Pull Request.
+
+For general guidance on Scoop manifests, see:
+
+* [Scoop App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
+* [Contributing Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
+
+---
+
+## License
+
+Unless stated otherwise in individual manifests, this bucket’s contents are provided under the same license as the upstream projects.
+The `mcp-for-azure-devops-boards` project itself is licensed under MIT:
+[https://github.com/danielealbano/mcp-for-azure-devops-boards](https://github.com/danielealbano/mcp-for-azure-devops-boards)
