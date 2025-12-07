@@ -7,7 +7,7 @@ This is a custom [Scoop](https://scoop.sh) bucket that ships MCP-related tools, 
 
 Currently included:
 
-- `mcp-for-azure-devops-boards`  
+- `mcp-for-azure-devops-boards`
   MCP server that exposes Azure DevOps Boards to MCP clients.
 
 ---
@@ -18,7 +18,7 @@ First, add this bucket:
 
 ```powershell
 scoop bucket add mcp-tools https://github.com/danielealbano/scoop-mcp-tools
-````
+```
 
 Then install the Azure DevOps Boards MCP server:
 
@@ -31,8 +31,6 @@ After installation you can run:
 ```powershell
 mcp-for-azure-devops-boards --help
 ```
-
----
 
 ## Available manifests
 
@@ -53,8 +51,6 @@ scoop update
 scoop update mcp-for-azure-devops-boards
 ```
 
----
-
 ## Contributing
 
 If you want to add or improve manifests in this bucket:
@@ -68,8 +64,6 @@ For general guidance on Scoop manifests, see:
 
 * [Scoop App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
 * [Contributing Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-
----
 
 ## License
 
