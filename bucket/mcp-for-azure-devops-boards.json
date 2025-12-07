@@ -17,9 +17,7 @@
     }
   },
 
-  "checkver": {
-    "github": "danielealbano/mcp-for-azure-devops-boards"
-  },
+  "checkver": "github",
 
   "autoupdate": {
     "architecture": {
